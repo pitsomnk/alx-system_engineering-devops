@@ -1,0 +1,20 @@
+What happens when you type google.com in your browser and press Enter in your browser and press Enter
+Typing "https://www.google.com" and hitting enter initiates a fascinating sequence of events. Let's dissect the technical journey your request takes to render the Google homepage.
+DNS Resolution: Unveiling the IP Address
+The process starts with a DNS request. Your computer acts as a DNS client, querying a DNS server to resolve the human-readable domain name "google.com" into its corresponding numerical IP address. This initial lookup allows your machine to locate the specific server hosting the Google website.
+TCP/IP: The Reliable Courier
+Armed with the IP address, your computer initiates a TCP/IP session with the Google server. TCP (Transmission Control Protocol) establishes a reliable connection by breaking down the website request into data packets. These packets are then transmitted over the internet using the IP (Internet Protocol), ensuring ordered and error-free delivery.
+Firewall: Guardian at the Gate
+The data packets may encounter a firewall on their way. This security software acts as a gatekeeper, filtering incoming traffic based on pre-defined rules. Only authorized packets matching specific criteria are allowed to pass through, safeguarding the server from malicious intrusions.
+HTTPS/SSL: Securing the Communication Channel
+The presence of "https" in the URL indicates secure communication using the HTTPS (Hypertext Transfer Protocol Secure) protocol. This protocol leverages SSL/TLS (Secure Sockets Layer/Transport Layer Security) for encryption. Imagine data packets wrapped in a secure envelope with encryption acting as the lock and the server possessing the key. This ensures the confidentiality and integrity of the transmitted data.
+Load Balancing: Distributing the Traffic Load
+For high-traffic websites like Google, a load balancer plays a crucial role. This software component acts as a traffic director, distributing incoming requests evenly across a pool of web servers. This prevents any single server from becoming overloaded and ensures optimal website performance.
+Web Server: Delivering the Content
+The web server receives your request and retrieves the necessary resources – HTML, CSS, JavaScript, and images – that constitute the Google homepage. Modern web servers may also interact with an application server if the page requires dynamic content generation based on user data or server-side scripts.
+Database: The Information Repository
+For features like personalized search results, the application server might query a database. This database acts as a centralized repository, storing user information and website content that dynamically shapes the user experience.
+Rendering the Page: From Server to Browser
+Finally, the web server assembles the retrieved elements into a cohesive webpage and transmits it back to your computer. Your browser, acting as a client, receives this data, interprets the code using its rendering engine, and displays the familiar Google homepage on your screen.
+This intricate interplay between your computer, servers, and various protocols orchestrates a seemingly instantaneous web browsing experience. The next time you type a URL, remember the complex technical ballet happening behind the scenes to bring the vast expanse of the internet to your fingertips.
+ 
