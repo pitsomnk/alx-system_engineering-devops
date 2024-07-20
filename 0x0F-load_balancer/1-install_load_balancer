@@ -41,7 +41,7 @@ frontend pitsobuilds-tech-frontend
 backend pitsobuilds-tech-backend
     balance roundrbin
     server 96690-web-01 54.166.142.185:80 check
-    server 96690-web-0  100.26.10.204:80 check
+    server 96690-web-022  100.26.10.204:80 check
 "
 
 # shellcheck disable=SC2154
