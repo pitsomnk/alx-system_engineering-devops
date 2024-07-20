@@ -39,7 +39,7 @@ frontend pitsobuilds-tech-frontend
     default_backend pitsobuilds-tech-backend
 
 backend pitsobuilds-tech-backend
-    balance roundrbin
+    balance roundrobin
     server 96690-web-01 54.166.142.185:80 check
     server 96690-web-02 100.26.10.204:80 check
 "
