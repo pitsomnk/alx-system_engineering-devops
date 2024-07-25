@@ -12,5 +12,3 @@ until false; do
   else
     break
   fi
-done
-
