@@ -1,43 +1,35 @@
 #!/usr/bin/python3
-
+"""Module that consumes the Reddit API and returns the number of subscribers"""
 import requests
 
+
 def number_of_subscribers(subreddit):
-    """
-    Returns the number of subscribers for a given subreddit.
+    """Queries the Reddit API and returns the number of subscribers (not
+    active users, total subscribers) for a given subreddit.
+
+    If not a valid subreddit, return 0.
+    Invalid subreddits may return a redirect to search results. Ensure that
+    you are not following redirects.
 
     Args:
-        subreddit (str): The name of the subreddit.
+        subreddit (str): subreddit
 
     Returns:
-        int: The number of subscribers. Returns 0 if the subreddit is invalid.
+        int: number of subscribers
     """
+    base_url = 'https://www.reddit.com/r/'
 
-    # Set a custom User-Agent to avoid Too Many Requests errors
-    headers = {'User-Agent': 'Reddit Subscriber Counter'}
-
-    # Construct the API URL
-    url = f'https://www.reddit.com/r/{subreddit}/about.json'
-
-    # Send a GET request to the API, don't follow redirects
-    response = requests.get(url, headers=headers, allow_redirects=False)
-
-    # If the subreddit is invalid, Reddit will return a 302 status code
-    if response.status_code == 302:
-        return 0
-
-    # If the request was successful, parse the JSON response
-    if response.status_code == 200:
-        data = response.json()
-        return data['data']['subscribers']
-
-    # If the request failed for any other reason, return 0
+    url = '{}{}/about.json'.format(base_url, subreddit)
+    headers = {
+        'User-Agent':
+        'Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2.3) \
+        Gecko/20100401 Firefox/3.6.3 (FM Scene 4.6.1)'
+    }
+    results = requests.get(
+        url,
+        headers=headers,
+        allow_redirects=False
+    )
+    if results.status_code == 200:
+        return results.json()['data']['subscribers']
     return 0
-
-if __name__ == "__main__":
-    import sys
-    if len(sys.argv) != 2:
-        print("Usage: python3 reddit_subscribers.py <subreddit>")
-        sys.exit(1)
-    subreddit = sys.argv[1]
-    print(number_of_subscribers(subreddit))
